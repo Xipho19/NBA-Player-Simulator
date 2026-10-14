@@ -12,25 +12,26 @@ import './choice-lock.css';
 import './summary.css';
 import './choice-actions.css';
 import './modal-actions.css';
+import './school-confirm.css';
 import {choiceEffects, pickOutcomeIndex} from './career-effects.js';
 
 const universities = [
-  { name:'杜克大学', conf:'ACC', city:'北卡罗来纳州·达勒姆', note:'传统豪门。高压比赛会塑造你的关键球能力。' },
-  { name:'肯塔基大学', conf:'SEC', city:'肯塔基州·列克星敦', note:'NBA 输送线。每一场比赛都有球探在看。' },
-  { name:'冈萨加大学', conf:'WCC', city:'华盛顿州·斯波坎', note:'成熟体系。稳定的出场时间换来成长。' },
-  { name:'堪萨斯大学', conf:'Big 12', city:'堪萨斯州·劳伦斯', note:'篮球圣地。你会在喧嚣中学会领导球队。' },
-  { name:'UCLA', conf:'Big Ten', city:'加利福尼亚州·洛杉矶', note:'聚光灯下的大学篮球，天赋与名气并存。' },
-  { name:'北卡大学', conf:'ACC', city:'北卡罗来纳州·教堂山', note:'快节奏传切。这里的控卫总有下一档进化。' },
-  { name:'普渡大学', conf:'Big Ten', city:'印第安纳州·西拉法叶', note:'成熟的内外线体系，稳定产出职业球员。' },
-  { name:'康涅狄格大学', conf:'Big East', city:'康涅狄格州·斯托斯', note:'冠军标准贯穿每一天的训练。' },
-  { name:'亚利桑那大学', conf:'Big 12', city:'亚利桑那州·图森', note:'快速攻防转换最适合释放运动能力。' },
-  { name:'休斯顿大学', conf:'Big 12', city:'得克萨斯州·休斯顿', note:'强硬防守和对抗是这里的身份。' },
-  { name:'密歇根大学', conf:'Big Ten', city:'密歇根州·安娜堡', note:'全面体系会检验你的篮球智商。' },
-  { name:'田纳西大学', conf:'SEC', city:'田纳西州·诺克斯维尔', note:'高强度防守为你赢得球探注意。' },
-  { name:'印第安纳大学', conf:'Big Ten', city:'印第安纳州·布卢明顿', note:'传统篮球文化会放大每一次表现。' },
-  { name:'维拉诺瓦大学', conf:'Big East', city:'宾夕法尼亚州·维拉诺瓦', note:'后卫培养体系强调决策和投射。' },
-  { name:'贝勒大学', conf:'Big 12', city:'得克萨斯州·韦科', note:'身体对抗和空间进攻并重。' },
-  { name:'奥本大学', conf:'SEC', city:'阿拉巴马州·奥本', note:'活力十足的体系奖励大胆的球员。' }
+  { name:'杜克大学', conf:'ACC', city:'北卡罗来纳州·达勒姆', rating:88, tagline:'老牌篮球豪门 · 冠军标准', note:'传统豪门。高压比赛会塑造你的关键球能力。' },
+  { name:'肯塔基大学', conf:'SEC', city:'肯塔基州·列克星敦', rating:90, tagline:'篮球名校 · 冠军血统', note:'NBA 输送线。每一场比赛都有球探在看。' },
+  { name:'冈萨加大学', conf:'WCC', city:'华盛顿州·斯波坎', rating:84, tagline:'成熟体系 · 稳定成长', note:'成熟体系。稳定的出场时间换来成长。' },
+  { name:'堪萨斯大学', conf:'Big 12', city:'堪萨斯州·劳伦斯', rating:87, tagline:'篮球圣地 · 领袖摇篮', note:'篮球圣地。你会在喧嚣中学会领导球队。' },
+  { name:'UCLA', conf:'Big Ten', city:'加利福尼亚州·洛杉矶', rating:88, tagline:'豪门底蕴 · 冠军光环', note:'聚光灯下的大学篮球，天赋与名气并存。' },
+  { name:'北卡大学', conf:'ACC', city:'北卡罗来纳州·教堂山', rating:88, tagline:'传切血统 · 后卫孵化器', note:'快节奏传切。这里的控卫总有下一档进化。' },
+  { name:'普渡大学', conf:'Big Ten', city:'印第安纳州·西拉法叶', rating:80, tagline:'内外兼修 · 职业摇篮', note:'成熟的内外线体系，稳定产出职业球员。' },
+  { name:'康涅狄格大学', conf:'Big East', city:'康涅狄格州·斯托斯', rating:86, tagline:'冠军文化 · 铁血标准', note:'冠军标准贯穿每一天的训练。' },
+  { name:'亚利桑那大学', conf:'Big 12', city:'亚利桑那州·图森', rating:83, tagline:'速度体系 · 运动天赋', note:'快速攻防转换最适合释放运动能力。' },
+  { name:'休斯顿大学', conf:'Big 12', city:'得克萨斯州·休斯顿', rating:82, tagline:'强硬对抗 · 防守标签', note:'强硬防守和对抗是这里的身份。' },
+  { name:'密歇根大学', conf:'Big Ten', city:'密歇根州·安娜堡', rating:82, tagline:'全面体系 · 高球商', note:'全面体系会检验你的篮球智商。' },
+  { name:'田纳西大学', conf:'SEC', city:'田纳西州·诺克斯维尔', rating:81, tagline:'铁血防守 · 球探雷达', note:'高强度防守为你赢得球探注意。' },
+  { name:'印第安纳大学', conf:'Big Ten', city:'印第安纳州·布卢明顿', rating:82, tagline:'传统篮球 · 放大表现', note:'传统篮球文化会放大每一次表现。' },
+  { name:'维拉诺瓦大学', conf:'Big East', city:'宾夕法尼亚州·维拉诺瓦', rating:83, tagline:'后卫体系 · 决策投射', note:'后卫培养体系强调决策和投射。' },
+  { name:'贝勒大学', conf:'Big 12', city:'得克萨斯州·韦科', rating:82, tagline:'对抗与空间并重', note:'身体对抗和空间进攻并重。' },
+  { name:'奥本大学', conf:'SEC', city:'阿拉巴马州·奥本', rating:79, tagline:'活力体系 · 奖励大胆', note:'活力十足的体系奖励大胆的球员。' }
 ];
 
 const chapters = [
@@ -97,12 +98,18 @@ function makeStageRecord(current,picked,position,score,decision){
   role.r+=growth*.2+(decision?.focus==='defense'?1.2:0);
   role.a+=growth*.2+(decision?.focus==='mentor'?1.2:0);
   if(/伤病|报销|下滑/.test(picked[0])){role.p*=.7;role.r*=.8;role.a*=.8;}
-  return {key:current.key,label:current.label,value:picked[0],detail:picked[1],rating:Math.min(99,Math.max(40,68+Math.round(score*.4)+stage*2)),salary:stage<2?0:Math.round((2200+stage*680+Math.random()*1800)/100)*100,stats:{ppg:Math.max(5,role.p+variance()).toFixed(1),rpg:Math.max(2,role.r+variance()).toFixed(1),apg:Math.max(1,role.a+variance()).toFixed(1),fg:(45+Math.random()*12).toFixed(1)+'%',extra:Math.round(20+Math.random()*55),extraLabel:role.x}};
+  const school=current.key==='school'?(universities.find(x=>x.name===picked[0])||universities[0]):null;
+  const rating=school?school.rating:Math.min(99,Math.max(40,68+Math.round(score*.4)+stage*2));
+  return {key:current.key,label:current.label,value:picked[0],detail:picked[1],rating,school,salary:stage<2?0:Math.round((2200+stage*680+Math.random()*1800)/100)*100,stats:{ppg:Math.max(5,role.p+variance()).toFixed(1),rpg:Math.max(2,role.r+variance()).toFixed(1),apg:Math.max(1,role.a+variance()).toFixed(1),fg:(45+Math.random()*12).toFixed(1)+'%',extra:Math.round(20+Math.random()*55),extraLabel:role.x}};
 }
 
 function StageModal({record,onContinue,onReroll=()=>rerollCareer(),freeRerollUsed=false,rerollMessage=''}){
   onContinue=()=>continueCareer();
   if(!record)return null;
+  if(record.school){
+    const s=record.school, sc=s.records?.scoring, as=s.records?.assists;
+    return <div className="modal-backdrop"><div className="stage-modal school-confirm"><div className="modal-top"><span>步骤</span><em>你的大学项目 · 01 / 09</em></div><h2>{s.name}</h2><p className="school-kicker">{s.tagline}</p><div className="school-meta"><div className="school-meta-cell"><small>综合评级</small><b className="school-rating">{record.rating}</b></div><div className="school-meta-cell"><small>赛区 · CONFERENCE</small><b>{s.conf}</b></div><div className="school-meta-cell"><small>主场城市 · HOME</small><b>{s.city}</b></div></div><div className="school-scout"><span>球探报告 · SCOUTING REPORT</span><p>{s.note}</p></div><div className="school-archive"><span>{s.name}项目历史纪录</span>{sc?.pts?<div className="archive-row"><b>{sc.pts}</b><div><em>队史单季得分纪录（分）</em><small>{sc.player} · {sc.year}</small></div></div>:<div className="archive-row"><b>·</b><div><em>队史单季得分纪录（分）</em><small>待查证</small></div></div>}{as?.ast?<div className="archive-row"><b>{as.ast}</b><div><em>队史单季助攻纪录（次）</em><small>{as.player} · {as.year}</small></div></div>:<div className="archive-row"><b>·</b><div><em>队史单季助攻纪录（次）</em><small>待查证</small></div></div>}</div><div className="modal-actions"><button className="modal-reroll" onClick={onReroll}><span>↻ {freeRerollUsed?'观看广告后重新转动':'免费重新转动'}</span>{!freeRerollUsed&&<small>（本生涯仅一次）</small>}</button><button className="modal-continue" onClick={onContinue}>开始篮球生涯<small>下一步：选择你的位置</small></button></div>{rerollMessage&&<p className="reroll-message">{rerollMessage}</p>}</div></div>;
+  }
   return <div className="modal-backdrop"><div className="stage-modal"><div className="modal-top"><span>章节结果</span><em>{record.label}</em></div><h2>{record.label}完成</h2><p>已经播出了这一阶段。以下是球员的内容。</p><div className="modal-team"><div><small>你的结果</small><strong>{record.value}</strong><span>{record.detail}</span>{record.influence&&<span className="stage-influence">上一份选择：{record.influence}</span>}</div>{record.salary>0&&<div className="modal-pay"><small>支付</small><b>{record.salary}万美金</b></div>}<div className="modal-rating"><small>分级</small><b>{record.rating}</b></div></div><div className="modal-stat-title"><span>章节属性线</span><em>最佳场均 {record.stats.ppg} 分</em></div><div className="modal-primary"><div><b>{record.stats.ppg}</b><span>场均得分</span></div><div><b>{record.stats.rpg}</b><span>场均篮板</span></div><div><b>{record.stats.apg}</b><span>场均助攻</span></div></div><div className="modal-secondary"><div><b>{record.stats.fg}</b><span>投篮命中率</span></div><div><b>{record.stats.extra}</b><span>{record.stats.extraLabel}</span></div><div><b>{Math.max(1,Number(record.stats.apg)-1).toFixed(1)}</b><span>失误</span></div></div><div className="modal-actions"><button className="modal-reroll" onClick={onReroll}><span>↻ {freeRerollUsed?'观看广告后重新转动':'免费重新转动'}</span>{!freeRerollUsed&&<small>（本生涯仅一次）</small>}</button><button className="modal-continue" onClick={onContinue}>继续职业生涯</button></div>{rerollMessage&&<p className="reroll-message">{rerollMessage}</p>}</div></div>;
 }
 

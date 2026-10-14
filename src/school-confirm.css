@@ -1,0 +1,30 @@
+/* 大学阶段 · 学校详情确认页（仿原版布局） */
+.school-confirm{padding:26px 30px 30px}
+.school-confirm h2{font-size:46px;margin:24px 0 4px}
+.school-kicker{color:#6fa3ef;font:11px 'DM Mono';letter-spacing:.06em;margin:0 0 22px;text-transform:none}
+.school-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 20px}
+.school-meta-cell{border:1px solid #475971;border-radius:16px;padding:14px 16px;text-align:left}
+.school-meta-cell small{display:block;color:#8f9aab;font:10px 'DM Mono';letter-spacing:.06em}
+.school-meta-cell b{display:block;font:600 26px 'Playfair Display';margin-top:6px;color:#e6eaf2;white-space:normal;line-height:1.15}
+.school-meta-cell .school-rating{color:#f4bb38;font:700 32px 'Playfair Display'}
+.school-scout{border:1px solid #3e70bb;border-radius:16px;background:#13203a;padding:16px 18px;margin-bottom:14px}
+.school-scout>span{display:block;color:#4b8af5;font:11px 'DM Mono';letter-spacing:.08em}
+.school-scout p{color:#c4d0e2;font:13px/1.6 'DM Mono';margin:10px 0 0}
+.school-archive{border:1px solid #3d4651;border-radius:16px;padding:16px 18px;margin-bottom:4px}
+.school-archive>span{display:block;color:#9aa7b8;font:11px 'DM Mono';letter-spacing:.08em;margin-bottom:10px}
+.archive-row{display:flex;align-items:center;gap:16px;border-top:1px solid #28364a;padding:12px 0}
+.archive-row:first-of-type{border-top:0;padding-top:2px}
+.archive-row b{font:700 30px 'Playfair Display';color:#72a5ef;min-width:64px;text-align:center}
+.archive-row div{display:flex;flex-direction:column;gap:3px}
+.archive-row em{font-style:normal;color:#dfe8f7;font-size:12px;font-family:'DM Mono'}
+.archive-row small{color:#8b99ac;font:10px 'DM Mono'}
+@media(max-width:700px){
+  .school-confirm{padding:18px 16px 20px}
+  .school-confirm h2{font-size:32px}
+  .school-meta{grid-template-columns:1fr;gap:8px}
+  .school-meta-cell{display:flex;align-items:center;justify-content:space-between;padding:11px 14px}
+  .school-meta-cell small{display:block;color:#8f9aab;font-size:9px}
+  .school-meta-cell b{font-size:22px;margin-top:0}
+  .school-meta-cell .school-rating{font-size:24px}
+  .archive-row b{font-size:26px;min-width:54px}
+}
