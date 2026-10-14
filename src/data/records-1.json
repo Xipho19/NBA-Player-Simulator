@@ -1,0 +1,90 @@
+[
+  {
+    "school_en": "Duke",
+    "school_zh": "杜克大学",
+    "conf": "ACC",
+    "city": "北卡罗来纳州·达勒姆",
+    "scoring": {
+      "pts": 941,
+      "player": "J.J. Redick",
+      "player_zh": "JJ·雷迪克",
+      "year": "2005-06",
+      "source_url": "https://goduke.com/news/2019/4/10/211799193.aspx",
+      "evidence": "He broke both the Duke and ACC freshman scoring records with 860 points, and finished with the second most points by a Duke player in a single season, trailing only the 941 points by J.J. Redick in his 2006 senior campaign."
+    },
+    "assists": {
+      "ast": 289,
+      "player": "Bobby Hurley",
+      "player_zh": "鲍比·赫尔利",
+      "year": "1990-91",
+      "source_url": "https://www.sports-reference.com/cbb/schools/duke/men/leaders-and-records.html",
+      "evidence": "Season Leaders - Assists: 1. Bobby Hurley, 1990-91 289 (2. Bobby Hurley, 1989-90 288; 3. Bobby Hurley, 1992-93 262)."
+    }
+  },
+  {
+    "school_en": "North Carolina",
+    "school_zh": "北卡罗来纳大学",
+    "conf": "ACC",
+    "city": "北卡罗来纳州·教堂山",
+    "scoring": {
+      "pts": 897,
+      "player": "Lennie Rosenbluth",
+      "player_zh": "伦尼·罗森布鲁斯",
+      "year": "1956-57",
+      "source_url": "https://goheels.com/news/2024/12/31/mens-basketball-rosenbluth-posthumously-elected-to-collegiate-basketball-hof",
+      "evidence": "Rosenbluth set the ACC career scoring record with 2,045 points (since broken) and still maintains single-season UNC records for points (897) and scoring average (28.0), both set in 1956-57."
+    },
+    "assists": {
+      "ast": 351,
+      "player": "Kendall Marshall",
+      "player_zh": "肯德尔·马绍尔",
+      "year": "2011-12",
+      "source_url": "https://goheels.com/sports/mens-basketball/roster/coaches/kendall-marshall/3648",
+      "evidence": "He set the ACC single-season record for assists with 351, the fourth-most in NCAA history. (recorded as a sophomore in 2011-12; per goheels 'POINTS-SEASON' notes and sports-reference he is UNC's single-season assists leader, ahead of Ed Cota's 284 in 1999-00)."
+    }
+  },
+  {
+    "school_en": "Kentucky",
+    "school_zh": "肯塔基大学",
+    "conf": "SEC",
+    "city": "肯塔基州·列克星敦",
+    "scoring": {
+      "pts": 948,
+      "player": "Dan Issel",
+      "player_zh": "丹·伊塞尔",
+      "year": "1969-70",
+      "source_url": "https://www.sports-reference.com/cbb/schools/kentucky/men/leaders-and-records.html",
+      "evidence": "Season Leaders - Points: 1. Dan Issel, 1969-70 948 (2. Jodie Meeks, 2008-09 854; 3. Jamal Mashburn, 1991-92 767). Corroborated: 'Dan Issel holds the Season scoring record - 948pts.(1969-70)'."
+    },
+    "assists": {
+      "ast": 246,
+      "player": "Tyler Ulis",
+      "player_zh": "泰勒·尤利斯",
+      "year": "2015-16",
+      "source_url": "https://global.nba.com/news/draft-profile-tyler-ulis/",
+      "evidence": "The 5-foot-9, 149-pound point guard had one of the top facilitating campaigns in Kentucky's storied history this past season, as he dished out a Wildcat-record 246 assists. ... He led the SEC in assists (246) ... His assist mark was the fifth-highest in the nation, and the top single season mark in Wildcat history. (his sophomore season, 2015-16)."
+    }
+  },
+  {
+    "school_en": "Tennessee",
+    "school_zh": "田纳西大学",
+    "conf": "SEC",
+    "city": "田纳西州·诺克斯维尔",
+    "scoring": {
+      "pts": 806,
+      "player": "Allan Houston",
+      "player_zh": "阿兰·休斯顿",
+      "year": "1990-91",
+      "source_url": "https://utsports.com/sports/mens-basketball/roster/allan-houston/8259",
+      "evidence": "1990-91 - SOPHOMORE: Set UT's single-season scoring record with 806 points. Started all 34 games for the Vols and averaged a career-best 23.7 points per game."
+    },
+    "assists": {
+      "ast": 275,
+      "player": "Zakai Zeigler",
+      "player_zh": "扎凯·齐格勒",
+      "year": "2024-25",
+      "source_url": "https://utsports.com/sports/mens-basketball/roster/vescovi-santiago/20403",
+      "evidence": "Totaled 275 assists to set the Tennessee and SEC single-season records, breaking marks that stood since 1974-75 (Rodney Woods) and 1979-80 (Sean Tuohy), respectively. (his senior season, 2024-25)."
+    }
+  }
+]

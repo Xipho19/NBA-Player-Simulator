@@ -1,0 +1,90 @@
+[
+  {
+    "school_en": "Connecticut",
+    "school_zh": "康涅狄格大学",
+    "conf": "Big East",
+    "city": "康涅狄格州·斯托斯",
+    "scoring": {
+      "pts": 965,
+      "player": "Kemba Walker",
+      "player_zh": "肯巴·沃克",
+      "year": "2010-11",
+      "source_url": "https://uconnhuskies.com/news/2018/2/9/Walker_Joins_Drummond_in_NBA_All_Star_Game",
+      "evidence": "He set UConn single-season records of 965 points in 2010-11."
+    },
+    "assists": {
+      "ast": 253,
+      "player": "Taliek Brown",
+      "player_zh": "塔利克·布朗",
+      "year": "2003-04",
+      "source_url": "https://en.wikipedia.org/wiki/UConn_Huskies_men%27s_basketball_statistical_leaders",
+      "evidence": "Season assists leaders: 1. Taliek Brown, 253, 2003-04."
+    }
+  },
+  {
+    "school_en": "Villanova",
+    "school_zh": "维拉诺瓦大学",
+    "conf": "Big East",
+    "city": "宾夕法尼亚州·维拉诺瓦",
+    "scoring": {
+      "pts": 836,
+      "player": "Bob Schafer",
+      "player_zh": "鲍勃·谢弗",
+      "year": "1953-54",
+      "source_url": "https://www.sports-reference.com/cbb/schools/villanova/men/leaders-and-records-season.html",
+      "evidence": "Season points leaders: 1. Bob Schafer, 1953-54 836."
+    },
+    "assists": {
+      "ast": 238,
+      "player": "Chris Ford",
+      "player_zh": "克里斯·福特",
+      "year": "1970-71",
+      "source_url": "https://www.sports-reference.com/cbb/schools/villanova/men/leaders-and-records-season.html",
+      "evidence": "Season assists leaders: 1. Chris Ford, 1970-71 238."
+    }
+  },
+  {
+    "school_en": "Arizona",
+    "school_zh": "亚利桑那大学",
+    "conf": "Big 12",
+    "city": "亚利桑那州·图森",
+    "scoring": {
+      "pts": 848,
+      "player": "Khalid Reeves",
+      "player_zh": "哈立德·里夫斯",
+      "year": "1993-94",
+      "source_url": "https://arizonawildcats.com/news/2020/6/25/mens-basketball-throwbackthursday-1993-94-pac-10-champions.aspx",
+      "evidence": "His 848 points scored still stand as the Arizona single-season record."
+    },
+    "assists": {
+      "ast": 247,
+      "player": "Russell Brown",
+      "player_zh": "拉塞尔·布朗",
+      "year": "1978-79",
+      "source_url": "https://www.sports-reference.com/cbb/schools/arizona/men/leaders-and-records-season.html",
+      "evidence": "Season assists leaders: 1. Russell Brown, 1978-79 247."
+    }
+  },
+  {
+    "school_en": "Auburn",
+    "school_zh": "奥本大学",
+    "conf": "SEC",
+    "city": "阿拉巴马州·奥本",
+    "scoring": {
+      "pts": 747,
+      "player": "Chuck Person",
+      "player_zh": "查克·珀森",
+      "year": "1984-85",
+      "source_url": "https://www.sports-reference.com/cbb/schools/auburn/men/leaders-and-records-season.html",
+      "evidence": "Season points leaders: 1. Chuck Person, 1984-85 747."
+    },
+    "assists": {
+      "ast": 231,
+      "player": "Jared Harper",
+      "player_zh": "贾里德·哈珀",
+      "year": "2018-19",
+      "source_url": "https://www.sports-reference.com/cbb/schools/auburn/men/leaders-and-records-season.html",
+      "evidence": "Season assists leaders: 1. Jared Harper, 2018-19 231."
+    }
+  }
+]

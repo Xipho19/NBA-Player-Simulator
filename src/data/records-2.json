@@ -1,0 +1,90 @@
+[
+  {
+    "school_en": "Gonzaga",
+    "school_zh": "冈萨加大学",
+    "conf": "WCC",
+    "city": "华盛顿州·斯波坎",
+    "scoring": {
+      "pts": 926,
+      "player": "Adam Morrison",
+      "player_zh": "亚当·莫里森",
+      "year": "2005-06",
+      "source_url": "https://gozags.com/news/2006/4/19/Morrison_To_Take_Game_To_Next_Level",
+      "evidence": "Morrison leaves his mark on the Gonzaga record book. This season he set single-season marks for points (926), field goals made (306) and free throws made (240)."
+    },
+    "assists": {
+      "ast": 344,
+      "player": "Ryan Nembhard",
+      "player_zh": "瑞安·内姆哈德",
+      "year": "2024-25",
+      "source_url": "https://www.sports-reference.com/cbb/schools/gonzaga/men/leaders-and-records-season.html",
+      "evidence": "Season Leaders - Assists: 1. Ryan Nembhard, 2024-25 344; 2. Ryan Nembhard, 2023-24 243; 3. Josh Perkins, 2018-19 234."
+    }
+  },
+  {
+    "school_en": "Kansas",
+    "school_zh": "堪萨斯大学",
+    "conf": "Big 12",
+    "city": "堪萨斯州·劳伦斯",
+    "scoring": {
+      "pts": 942,
+      "player": "Danny Manning",
+      "player_zh": "丹尼·曼宁",
+      "year": "1987-88",
+      "source_url": "https://www.sports-reference.com/cbb/schools/kansas/men/leaders-and-records-season.html",
+      "evidence": "Season Leaders - Points: 1. Danny Manning, 1987-88 942; 2. Danny Manning, 1986-87 860; 3. Wilt Chamberlain, 1956-57 800."
+    },
+    "assists": {
+      "ast": 282,
+      "player": "Devonte' Graham",
+      "player_zh": "德文特·格雷厄姆",
+      "year": "2017-18",
+      "source_url": "https://www.sports-reference.com/cbb/schools/kansas/men/leaders-and-records-season.html",
+      "evidence": "Season Leaders - Assists: 1. Devonte' Graham, 2017-18 282; 2. Cedric Hunter, 1985-86 278; 3. Aaron Miles, 2001-02 252."
+    }
+  },
+  {
+    "school_en": "Baylor",
+    "school_zh": "贝勒大学",
+    "conf": "Big 12",
+    "city": "得克萨斯州·韦科",
+    "scoring": {
+      "pts": 712,
+      "player": "Pierre Jackson",
+      "player_zh": "皮埃尔·杰克逊",
+      "year": "2012-13",
+      "source_url": "https://www.sports-reference.com/cbb/schools/baylor/men/leaders-and-records.html",
+      "evidence": "Season Leaders - Points: 1. Pierre Jackson, 2012-13 712; 2. LaceDarius Dunn, 2009-10 704; 3. Darryl Middleton, 1987-88 666."
+    },
+    "assists": {
+      "ast": 284,
+      "player": "Nelson Haggerty",
+      "player_zh": "纳尔逊·哈格蒂",
+      "year": "1994-95",
+      "source_url": "https://www.sports-reference.com/cbb/schools/baylor/men/leaders-and-records.html",
+      "evidence": "Season Leaders - Assists: 1. Nelson Haggerty, 1994-95 284; 2. Pierre Jackson, 2012-13 255; 3. RayJ Dennis, 2023-24 236."
+    }
+  },
+  {
+    "school_en": "Houston",
+    "school_zh": "休斯顿大学",
+    "conf": "Big 12",
+    "city": "得克萨斯州·休斯顿",
+    "scoring": {
+      "pts": 1214,
+      "player": "Elvin Hayes",
+      "player_zh": "埃尔文·海耶斯",
+      "year": "1967-68",
+      "source_url": "https://www.sports-reference.com/cbb/schools/houston/men/leaders-and-records-season.html",
+      "evidence": "Season Leaders - Points: 1. Elvin Hayes, 1967-68 1214; 2. Otis Birdsong, 1976-77 1090; 3. Aubrey Coleman, 2009-10 896."
+    },
+    "assists": {
+      "ast": 309,
+      "player": "Reid Gettys",
+      "player_zh": "里德·格蒂斯",
+      "year": "1983-84",
+      "source_url": "https://www.sports-reference.com/cbb/schools/houston/men/leaders-and-records-season.html",
+      "evidence": "Season Leaders - Assists: 1. Reid Gettys, 1983-84 309; 2. Jamal Shead, 2023-24 233; 3. Jamal Shead, 2021-22 221."
+    }
+  }
+]

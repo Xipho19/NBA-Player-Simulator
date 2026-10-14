@@ -1,0 +1,90 @@
+[
+  {
+    "school_en": "UCLA",
+    "school_zh": "UCLA",
+    "conf": "Big Ten",
+    "city": "加利福尼亚州·洛杉矶",
+    "scoring": {
+      "pts": 870,
+      "player": "Kareem Abdul-Jabbar (Lew Alcindor)",
+      "player_zh": "卡里姆·阿卜杜尔-贾巴尔（大学时名卢·阿尔辛多）",
+      "year": "1966-67",
+      "source_url": "https://www.sports-reference.com/cbb/schools/ucla/men/leaders-and-records-season.html",
+      "evidence": "Points 1. Kareem Abdul-Jabbar, 1966-67 870 (cross-confirmed by UCLA official records PDF: 'Most Points: 870 by Lew Alcindor, 1967' and 'POINTS SCORED: 1. Lew Alcindor 1967 870 29.0')"
+    },
+    "assists": {
+      "ast": 274,
+      "player": "Lonzo Ball",
+      "player_zh": "朗佐·鲍尔",
+      "year": "2016-17",
+      "source_url": "https://www.sports-reference.com/cbb/schools/ucla/men/leaders-and-records-season.html",
+      "evidence": "Assists 1. Lonzo Ball, 2016-17 274 (Note: older UCLA media guides listed Pooh Richardson 236 as record, but Lonzo Ball's 274 in 2016-17 surpassed it; Donovan Dent 265 in 2025-26 is second, Larry Drew 256 in 2012-13 third)"
+    }
+  },
+  {
+    "school_en": "Purdue",
+    "school_zh": "普渡大学",
+    "conf": "Big Ten",
+    "city": "印第安纳州·西拉法叶",
+    "scoring": {
+      "pts": 1030,
+      "player": "Glenn Robinson",
+      "player_zh": "格伦·罗宾逊",
+      "year": "1993-94",
+      "source_url": "https://purduesports.com/news/2014/2/17/Robinson_to_be_Honored_at_Purdue_Michigan_State_Game",
+      "evidence": "Robinson's 1,030 points during the 1993-94 season are a school record. He is the only player in Big Ten history to eclipse the 1,000-point plateau in a season."
+    },
+    "assists": {
+      "ast": 345,
+      "player": "Braden Smith",
+      "player_zh": "布雷登·史密斯",
+      "year": "2025-26",
+      "source_url": "https://purduesports.com/sports/mens-basketball/roster/player/braden-smith",
+      "evidence": "He finished the season with 345 assists, leading the country and ranking fifth all-time on the NCAA single-season assists list (Braden Smith's prior marks: 292 in 2023-24 was a Purdue and Big Ten record at the time; 313 in 2024-25; 345 in 2025-26 is the school record)"
+    }
+  },
+  {
+    "school_en": "Michigan",
+    "school_zh": "密歇根大学",
+    "conf": "Big Ten",
+    "city": "密歇根州·安娜堡",
+    "scoring": {
+      "pts": 949,
+      "player": "Glen Rice",
+      "player_zh": "格伦·莱斯",
+      "year": "1988-89",
+      "source_url": "https://mgoblue.com/news/2013/2/17/michigan_greats_return_to_crisler_center_for_dedication.aspx",
+      "evidence": "Rice remains at the top of Wolverine history with career points (2,442), single-season points (949, 1988-89) and single-season three-point field goal percentage (51.6 percent, 1988-89)"
+    },
+    "assists": {
+      "ast": 260,
+      "player": "Trey Burke",
+      "player_zh": "特雷·伯克",
+      "year": "2012-13",
+      "source_url": "https://mgoblue.com/news/2013/4/16/Burke_Garners_Second_Team_MVP_Award_at_End_of_Season_Banquet.aspx",
+      "evidence": "Burke also earned the GARY GRANT AWARD FOR MOST ASSISTS, as he closed the season setting the U-M single-season and sophomore class record with 260 total assists."
+    }
+  },
+  {
+    "school_en": "Indiana",
+    "school_zh": "印第安纳大学",
+    "conf": "Big Ten",
+    "city": "印第安纳州·布卢明顿",
+    "scoring": {
+      "pts": 785,
+      "player": "Calbert Cheaney",
+      "player_zh": "卡尔伯特·奇尼",
+      "year": "1992-93",
+      "source_url": "https://iuhoosiers.com/sports/mens-basketball/roster/calbert-cheaney/9878",
+      "evidence": "From Calbert Cheaney career stats table on IUHoosiers.com: 92-93 season row: G=35, GS=35, FGM=303, FGA=552, FTM=132, FTA=166, Pts=785, Avg=22.4 (cross-confirmed by sports-reference.com: 'Points 1. Calbert Cheaney, 1992-93 785')"
+    },
+    "assists": {
+      "ast": 197,
+      "player": "Isiah Thomas",
+      "player_zh": "伊塞亚·托马斯",
+      "year": "1980-81",
+      "source_url": "https://iuhoosiers.com/news/2016/3/28/mens-basketball-ferrell-earns-3rd-team-nabc-all-american-honors",
+      "evidence": "Additionally, his 195 assists this season are the second-most in a single season in IU history, trailing Isiah Thomas' 197 set during the 1980-81 season. (cross-confirmed by sports-reference.com: 'Assists 1. Isiah Thomas, 1980-81 197')"
+    }
+  }
+]

@@ -1,0 +1,60 @@
+/* 大学项目结果弹窗 · 仿原版布局（sv = school view） */
+.sv-modal{padding:22px 22px 26px}
+
+.sv-top{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #3a4350;padding-bottom:14px;position:relative}
+.sv-top-left{display:flex;align-items:center;gap:10px;min-width:0}
+.sv-badge{border:1px solid #3e70bb;border-radius:24px;padding:6px 12px;color:#73a6f5;font:11px 'DM Mono';white-space:nowrap}
+.sv-top em{font-style:normal;color:#a9b1bf;font:10px 'DM Mono';white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sv-set-wrap{position:relative;flex:none}
+.sv-set{border:1px solid #303945;border-radius:16px;background:transparent;color:#a9b1bf;font:10px 'DM Mono';padding:7px 13px;cursor:pointer}
+.sv-set:hover{color:#e6eaf2;border-color:#4a5a70}
+.sv-menu{position:absolute;right:0;top:calc(100% + 6px);z-index:5;border:1px solid #3d4651;border-radius:12px;background:#1a2333;min-width:150px;overflow:hidden;box-shadow:0 12px 30px #000a}
+.sv-menu button{display:block;width:100%;text-align:left;background:transparent;border:0;color:#dfe8f7;font:12px 'DM Mono';padding:11px 14px;cursor:pointer}
+.sv-menu button:hover{background:#243450}
+
+.sv-name{font:700 40px/1.05 'Playfair Display';margin:20px 0 10px;color:#eef2f9;word-break:break-word}
+.sv-tagrow{margin:0 0 6px}
+.sv-capsule{display:inline-block;border:1px solid #3e70bb;border-radius:20px;padding:5px 12px;color:#73a6f5;font:10px 'DM Mono';letter-spacing:.08em}
+.sv-subtitle{color:#9aa7b8;font:13px 'DM Mono';margin:0 0 16px}
+
+.sv-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px}
+.sv-meta-cell{border:1px solid #475971;border-radius:14px;padding:12px 14px}
+.sv-meta-cell small{display:block;color:#8f9aab;font:10px 'DM Mono';letter-spacing:.05em}
+.sv-meta-cell b{display:block;font:600 16px/1.35 'DM Mono';margin-top:6px;color:#e6eaf2;word-break:break-word}
+
+.sv-scout{border:1px solid #3e70bb;border-radius:14px;background:#13203a;padding:13px 15px;margin-bottom:12px}
+.sv-scout>span{display:block;color:#4b8af5;font:10px 'DM Mono';letter-spacing:.08em}
+.sv-scout p{color:#c4d0e2;font:12.5px/1.65 'DM Mono';margin:8px 0 0}
+
+.sv-archive{border:1px solid #3d4651;border-radius:14px;padding:13px 15px;margin-bottom:12px}
+.sv-archive-title{display:block;color:#9aa7b8;font:10px 'DM Mono';letter-spacing:.06em;margin-bottom:8px}
+.sv-archive-row{display:flex;align-items:center;gap:12px;border-top:1px solid #28364a;padding:10px 0}
+.sv-archive-row:first-of-type{border-top:0;padding-top:2px}
+.sv-archive-row>b{font:700 24px 'Playfair Display';color:#72a5ef;min-width:58px;display:flex;align-items:baseline;gap:3px}
+.sv-archive-row>b i{font:10px 'DM Mono';color:#72a5ef;font-style:normal}
+.sv-archive-label{flex:1;min-width:0}
+.sv-archive-label em{font-style:normal;color:#dfe8f7;font:11.5px/1.35 'DM Mono';display:block}
+.sv-archive-row>small{color:#8b99ac;font:10px 'DM Mono';white-space:nowrap}
+.sv-archive-row.is-pending{border-style:dashed;border-color:#3a4350;opacity:.75}
+.sv-archive-row.is-pending>b{color:#5a6a80}
+
+.sv-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;border:1px dashed #3a4350;border-radius:12px;padding:9px 12px;margin-bottom:14px;color:#a9b6c9;font:10.5px 'DM Mono'}
+.sv-strip span{white-space:nowrap}
+.sv-strip i{width:1px;height:11px;background:#3a4350}
+
+.sv-reroll{display:block;margin:0 auto 10px;background:transparent;border:1px solid #3d4651;border-radius:10px;color:#a9b6c9;font:11px 'DM Mono';padding:9px 16px;cursor:pointer}
+.sv-reroll:hover{border-color:#4b8af5;color:#cfe0ff}
+.sv-continue{margin-top:0}
+.reroll-message{color:#e08a8a;font:11px 'DM Mono';text-align:center;margin:10px 0 0}
+
+@media(max-width:700px){
+  .sv-modal{padding:16px 14px 20px}
+  .sv-name{font-size:30px;margin:16px 0 8px}
+  .sv-top em{font-size:9px}
+  .sv-meta-cell b{font-size:14px}
+  .sv-archive-row{gap:10px}
+  .sv-archive-row>b{font-size:20px;min-width:48px}
+  .sv-archive-label em{font-size:10.5px}
+  .sv-archive-row>small{font-size:9px}
+  .sv-strip{font-size:9.5px;gap:4px 8px}
+}

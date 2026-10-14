@@ -13,7 +13,9 @@ import './summary.css';
 import './choice-actions.css';
 import './modal-actions.css';
 import './school-confirm.css';
+import './school-modal.css';
 import {choiceEffects, pickOutcomeIndex} from './career-effects.js';
+import {schoolRecords} from './school-records.js';
 
 const universities = [
   { name:'杜克大学', conf:'ACC', city:'北卡罗来纳州·达勒姆', rating:88, tagline:'老牌篮球豪门 · 冠军标准', note:'传统豪门。高压比赛会塑造你的关键球能力。' },
@@ -103,12 +105,55 @@ function makeStageRecord(current,picked,position,score,decision){
   return {key:current.key,label:current.label,value:picked[0],detail:picked[1],rating,school,salary:stage<2?0:Math.round((2200+stage*680+Math.random()*1800)/100)*100,stats:{ppg:Math.max(5,role.p+variance()).toFixed(1),rpg:Math.max(2,role.r+variance()).toFixed(1),apg:Math.max(1,role.a+variance()).toFixed(1),fg:(45+Math.random()*12).toFixed(1)+'%',extra:Math.round(20+Math.random()*55),extraLabel:role.x}};
 }
 
-function StageModal({record,onContinue,onReroll=()=>rerollCareer(),freeRerollUsed=false,rerollMessage=''}){
+function StageModal({record,onContinue,onReroll=()=>rerollCareer(),freeRerollUsed=false,rerollMessage='',onRestart=()=>{}}){
+  const [menuOpen,setMenuOpen]=useState(false);
   onContinue=()=>continueCareer();
   if(!record)return null;
   if(record.school){
-    const s=record.school, sc=s.records?.scoring, as=s.records?.assists;
-    return <div className="modal-backdrop"><div className="stage-modal school-confirm"><div className="modal-top"><span>步骤</span><em>你的大学项目 · 01 / 09</em></div><h2>{s.name}</h2><p className="school-kicker">{s.tagline}</p><div className="school-meta"><div className="school-meta-cell"><small>综合评级</small><b className="school-rating">{record.rating}</b></div><div className="school-meta-cell"><small>赛区 · CONFERENCE</small><b>{s.conf}</b></div><div className="school-meta-cell"><small>主场城市 · HOME</small><b>{s.city}</b></div></div><div className="school-scout"><span>球探报告 · SCOUTING REPORT</span><p>{s.note}</p></div><div className="school-archive"><span>{s.name}项目历史纪录</span>{sc?.pts?<div className="archive-row"><b>{sc.pts}</b><div><em>队史单季得分纪录（分）</em><small>{sc.player} · {sc.year}</small></div></div>:<div className="archive-row"><b>·</b><div><em>队史单季得分纪录（分）</em><small>待查证</small></div></div>}{as?.ast?<div className="archive-row"><b>{as.ast}</b><div><em>队史单季助攻纪录（次）</em><small>{as.player} · {as.year}</small></div></div>:<div className="archive-row"><b>·</b><div><em>队史单季助攻纪录（次）</em><small>待查证</small></div></div>}</div><div className="modal-actions"><button className="modal-reroll" onClick={onReroll}><span>↻ {freeRerollUsed?'观看广告后重新转动':'免费重新转动'}</span>{!freeRerollUsed&&<small>（本生涯仅一次）</small>}</button><button className="modal-continue" onClick={onContinue}>开始篮球生涯<small>下一步：选择你的位置</small></button></div>{rerollMessage&&<p className="reroll-message">{rerollMessage}</p>}</div></div>;
+    const s=record.school;
+    const rec=schoolRecords[s.name]||{};
+    const sc=rec.scoring, as=rec.assists;
+    const stats=record.stats||{};
+    const archiveRow=(kind)=>{
+      const isScore=kind==='scoring';
+      const data=isScore?sc:as;
+      const label=isScore?'队史单季最高得分纪录（分）':'队史单季最高助攻纪录（次）';
+      if(data){
+        const value=isScore?data.pts:data.ast;
+        const unit=isScore?'分':'次';
+        return <div className="sv-archive-row"><b>{value}<i>{unit}</i></b><div className="sv-archive-label"><em>{label}</em></div><small>{data.player_zh} · {data.year}</small></div>;
+      }
+      return <div className="sv-archive-row is-pending"><b>—</b><div className="sv-archive-label"><em>{label}</em></div><small>纪录待核实</small></div>;
+    };
+    return <div className="modal-backdrop"><div className="stage-modal sv-modal">
+      <div className="sv-top">
+        <div className="sv-top-left"><span className="sv-badge">阶段</span><em>你的大学项目 · 01 / 09</em></div>
+        <div className="sv-set-wrap">
+          <button className="sv-set" onClick={()=>setMenuOpen(v=>!v)}>设置</button>
+          {menuOpen&&<div className="sv-menu"><button onClick={()=>{setMenuOpen(false);onRestart();}}>重新开始生涯</button></div>}
+        </div>
+      </div>
+      <h2 className="sv-name">{s.name}</h2>
+      <div className="sv-tagrow"><span className="sv-capsule">大学项目</span></div>
+      <p className="sv-subtitle">老牌大学项目</p>
+      <div className="sv-meta">
+        <div className="sv-meta-cell"><small>所属联盟</small><b>{s.conf}</b></div>
+        <div className="sv-meta-cell"><small>主场</small><b>{s.city}</b></div>
+      </div>
+      <div className="sv-scout"><span>球探报告</span><p>{s.note}</p></div>
+      <div className="sv-archive">
+        <span className="sv-archive-title">{s.name} · 球队档案</span>
+        {archiveRow('scoring')}
+        {archiveRow('assists')}
+      </div>
+      <div className="sv-strip">
+        <span>分级 {record.rating}</span><i/>
+        <span>{stats.ppg} 分</span><span>{stats.rpg} 板</span><span>{stats.apg} 助</span><span>{stats.fg} 命中</span>
+      </div>
+      <button className="sv-reroll" onClick={onReroll}>↻ {freeRerollUsed?'观看广告后重新转动':'免费重新转动'}</button>
+      <button className="modal-continue sv-continue" onClick={onContinue}>开启篮球生涯<small>下一步：选择位置</small></button>
+      {rerollMessage&&<p className="reroll-message">{rerollMessage}</p>}
+    </div></div>;
   }
   return <div className="modal-backdrop"><div className="stage-modal"><div className="modal-top"><span>章节结果</span><em>{record.label}</em></div><h2>{record.label}完成</h2><p>已经播出了这一阶段。以下是球员的内容。</p><div className="modal-team"><div><small>你的结果</small><strong>{record.value}</strong><span>{record.detail}</span>{record.influence&&<span className="stage-influence">上一份选择：{record.influence}</span>}</div>{record.salary>0&&<div className="modal-pay"><small>支付</small><b>{record.salary}万美金</b></div>}<div className="modal-rating"><small>分级</small><b>{record.rating}</b></div></div><div className="modal-stat-title"><span>章节属性线</span><em>最佳场均 {record.stats.ppg} 分</em></div><div className="modal-primary"><div><b>{record.stats.ppg}</b><span>场均得分</span></div><div><b>{record.stats.rpg}</b><span>场均篮板</span></div><div><b>{record.stats.apg}</b><span>场均助攻</span></div></div><div className="modal-secondary"><div><b>{record.stats.fg}</b><span>投篮命中率</span></div><div><b>{record.stats.extra}</b><span>{record.stats.extraLabel}</span></div><div><b>{Math.max(1,Number(record.stats.apg)-1).toFixed(1)}</b><span>失误</span></div></div><div className="modal-actions"><button className="modal-reroll" onClick={onReroll}><span>↻ {freeRerollUsed?'观看广告后重新转动':'免费重新转动'}</span>{!freeRerollUsed&&<small>（本生涯仅一次）</small>}</button><button className="modal-continue" onClick={onContinue}>继续职业生涯</button></div>{rerollMessage&&<p className="reroll-message">{rerollMessage}</p>}</div></div>;
 }
@@ -174,6 +219,6 @@ function App(){
       {completed&&<div className="career-complete"><span className="result-kicker">生涯完成</span><h2>你的 NBA 生涯已经结束</h2><p>最终传奇值 {goat+score} · {history.length} 个章节结果</p><button className="next-btn" onClick={restart}>重新开始一段生涯</button></div>}
       {result&&stageReviewed&&!choiceSets[current.key]&&<button className="next-btn standalone-next" onClick={next}>{chapter===8?'完成我的生涯':'继续职业生涯'} <ChevronRight size={17}/></button>}
       <div className="footnote"><Info size={14}/> 每次转动都会生成新的生涯路线；关闭页面后数据不会上传。</div>
-    </section><aside className="stats"><div className="stats-head"><span>实时数据</span><span className="status-pill">LIVE</span></div><div className="player-card"><div className="avatar">{position?position[0]:'?'}</div><div><b>{university?.name||'你的球员'}</b><span>{position||'未选择位置'} · {current.age}</span></div></div><div className="rating"><span>综合评分</span><strong>{stat.ovr}</strong><small>OVR</small></div><div className="stat-grid"><div><b>{stat.ppg}</b><span>生涯场均得分</span></div><div><b>{stat.rpg}</b><span>生涯场均篮板</span></div><div><b>{stat.apg}</b><span>生涯场均助攻</span></div><div><b>{stat.games}</b><span>计入阶段</span></div></div><div className="history"><div className="history-title">生涯记录簿 · {history.length}/9</div><div className="career-ledger">{chapters.map(c=>{const h=history.find(x=>x.key===c.key);return <div className={`ledger-row ${h?'filled':''}`} key={c.key}><div className="ledger-copy"><span>{c.label}</span><b>{h?.choice||h?.value||'· · ·'}</b>{h&&<small>{h.value}{h.salary?` · ${h.salary}万美金`:''}</small>}</div><div className="ledger-numbers"><b>{h?.stats?.ppg||'·'}</b><b>{h?.stats?.rpg||'·'}</b><b>{h?.stats?.apg||'·'}</b></div></div>})}</div></div><div className="quote">“伟大的生涯，不是一次选择决定的，而是九次坚持。”<small>— Draft Challenger</small></div></aside></main><footer className="footer">DRAFT CHALLENGE <span>·</span> NBA 生涯模拟器 <span>·</span> v1.0</footer><StageModal record={stageModal} freeRerollUsed={freeRerollUsed} rerollMessage={rerollMessage} onContinue={()=>{setStageModal(null);setStageReviewed(true)}}/>{completed&&<CareerSummary history={history} score={score} stat={stat} onRestart={restart}/>}</div>
+    </section><aside className="stats"><div className="stats-head"><span>实时数据</span><span className="status-pill">LIVE</span></div><div className="player-card"><div className="avatar">{position?position[0]:'?'}</div><div><b>{university?.name||'你的球员'}</b><span>{position||'未选择位置'} · {current.age}</span></div></div><div className="rating"><span>综合评分</span><strong>{stat.ovr}</strong><small>OVR</small></div><div className="stat-grid"><div><b>{stat.ppg}</b><span>生涯场均得分</span></div><div><b>{stat.rpg}</b><span>生涯场均篮板</span></div><div><b>{stat.apg}</b><span>生涯场均助攻</span></div><div><b>{stat.games}</b><span>计入阶段</span></div></div><div className="history"><div className="history-title">生涯记录簿 · {history.length}/9</div><div className="career-ledger">{chapters.map(c=>{const h=history.find(x=>x.key===c.key);return <div className={`ledger-row ${h?'filled':''}`} key={c.key}><div className="ledger-copy"><span>{c.label}</span><b>{h?.choice||h?.value||'· · ·'}</b>{h&&<small>{h.value}{h.salary?` · ${h.salary}万美金`:''}</small>}</div><div className="ledger-numbers"><b>{h?.stats?.ppg||'·'}</b><b>{h?.stats?.rpg||'·'}</b><b>{h?.stats?.apg||'·'}</b></div></div>})}</div></div><div className="quote">“伟大的生涯，不是一次选择决定的，而是九次坚持。”<small>— Draft Challenger</small></div></aside></main><footer className="footer">DRAFT CHALLENGE <span>·</span> NBA 生涯模拟器 <span>·</span> v1.0</footer><StageModal record={stageModal} freeRerollUsed={freeRerollUsed} rerollMessage={rerollMessage} onRestart={restart} onContinue={()=>{setStageModal(null);setStageReviewed(true)}}/>{completed&&<CareerSummary history={history} score={score} stat={stat} onRestart={restart}/>}</div>
 }
 createRoot(document.getElementById('root')).render(<App/>);
