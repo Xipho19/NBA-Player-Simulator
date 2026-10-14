@@ -1,4 +1,5 @@
 # NBA 球员生涯模拟器
+试玩链接：https://xipho19.github.io/NBA-Player-Simulator/
 
 使用 React 和 Vite 构建的中文篮球生涯模拟游戏，包含九章节生涯流程、纵向老虎机抽取、阶段选择、生涯记录和最终评分。
 
