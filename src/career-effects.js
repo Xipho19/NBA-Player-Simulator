@@ -3,7 +3,7 @@ const effect = (growth, risk, opportunity, focus, description) => ({growth, risk
 export const choiceEffects = {
   // 成长与薪资反相关：高薪→成长少+风险高；低薪→成长多+风险低，钱与成长不可兼得
   prime1: [
-    effect(1,1.8,1.9,'scoring','成长 +1 · 球权与数据上涨 · 长期死凿伤病风险提高 · 争冠窗口关闭'),
+    effect(1,1.8,1.9,'scoring','成长 +1 · 球权与数据上涨 · 高负荷出战伤病风险提高 · 争冠窗口关闭'),
     effect(2,0.7,2.0,'championship','成长 +2 · 季后赛历练 · 争冠机会大幅上升 · 伤病风险降低'),
     effect(3,0.5,1.8,'development','成长 +3 · 技术打磨扎实 · 转正机会增加 · 全明星窗口后延')
   ],
