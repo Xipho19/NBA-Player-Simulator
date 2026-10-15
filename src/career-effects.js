@@ -1,30 +1,30 @@
 // Each decision changes the next chapter's odds, not its guaranteed outcome.
 const effect = (growth, risk, opportunity, focus, description) => ({growth, risk, opportunity, focus, description});
 export const choiceEffects = {
-  // 每个阶段三条生涯路线：高薪(钱) / 争冠 / 忠诚-发展，高薪必带负面代价
+  // 成长与薪资反相关：高薪→成长少+风险高；低薪→成长多+风险低，钱与成长不可兼得
   prime1: [
-    effect(3,1.8,1.9,'scoring','成长 +3 · 球权与数据大幅上涨 · 长期死凿伤病风险提高 · 争冠窗口关闭'),
+    effect(1,1.8,1.9,'scoring','成长 +1 · 球权与数据上涨 · 长期死凿伤病风险提高 · 争冠窗口关闭'),
     effect(2,0.7,2.0,'championship','成长 +2 · 季后赛历练 · 争冠机会大幅上升 · 伤病风险降低'),
-    effect(1,0.5,1.8,'development','成长 +1 · 技术打磨扎实 · 全明星窗口后延 · 转正机会增加')
+    effect(3,0.5,1.8,'development','成长 +3 · 技术打磨扎实 · 转正机会增加 · 全明星窗口后延')
   ],
   prime2: [
-    effect(3,1.9,1.8,'scoring','成长 +3 · 得分与荣誉上限打开 · 伤病与交易风险提高 · 争冠机会下降'),
-    effect(1,0.6,2.0,'championship','成长 +1 · 争冠机会大增 · 个人数据略降 · 健康优先'),
-    effect(2,1.3,1.6,'development','成长 +2 · 重建期球权充足 · 战绩垫底 · 全明星窗口波动')
+    effect(1,1.9,1.8,'scoring','成长 +1 · 得分与荣誉上限打开 · 伤病与交易风险提高 · 争冠机会下降'),
+    effect(2,0.6,2.0,'championship','成长 +2 · 争冠机会大增 · 个人数据略降 · 健康优先'),
+    effect(3,1.3,1.6,'development','成长 +3 · 重建期球权充足 · 全明星窗口波动 · 战绩垫底')
   ],
   prime3: [
-    effect(3,1.9,1.7,'scoring','成长 +3 · 得分王与 MVP 窗口 · 磨损与重建风险高 · 争冠机会低'),
-    effect(1,0.5,2.0,'championship','成长 +1 · 总冠军与 FMVP 机会大增 · 数据与收入让步'),
-    effect(2,0.8,1.8,'loyalty','成长 +2 · 队史地位与退役球衣机会 · 争冠看球队配置')
+    effect(1,1.9,1.7,'scoring','成长 +1 · 得分王与 MVP 窗口 · 磨损与重建风险高 · 争冠机会低'),
+    effect(2,0.5,2.0,'championship','成长 +2 · 总冠军与 FMVP 机会大增 · 数据与收入让步'),
+    effect(3,0.8,1.8,'loyalty','成长 +3 · 队史地位与退役球衣机会 · 争冠看球队配置')
   ],
   prime4: [
-    effect(3,1.8,1.6,'scoring','成长 +3 · 保持核心数据 · 磨损与交易风险高 · 争冠机会低'),
-    effect(1,0.5,1.9,'championship','成长 +1 · 最后一冠机会大增 · 收入大幅让步'),
-    effect(2,0.4,1.8,'mentor','成长 +2 · 传帮带 · 退役后教练/管理层机会 · 数据让位')
+    effect(1,1.8,1.6,'scoring','成长 +1 · 保持核心数据 · 磨损与交易风险高 · 争冠机会低'),
+    effect(2,0.5,1.9,'championship','成长 +2 · 最后一冠机会大增 · 收入大幅让步'),
+    effect(3,0.4,1.8,'mentor','成长 +3 · 传帮带 · 退役后教练/管理层机会 · 数据让位')
   ],
   prime5: [
-    effect(2,1.2,1.6,'loyalty','成长 +2 · 球迷爱戴 · 球衣退役机会 · 数据下滑 · 争冠离开'),
-    effect(1,0.6,2.0,'championship','成长 +1 · 名人堂与冠军收尾机会 · 收入让步'),
+    effect(1,1.4,1.6,'loyalty','成长 +1 · 球迷爱戴 · 球衣退役机会 · 数据下滑 · 争冠离开'),
+    effect(2,0.6,2.0,'championship','成长 +2 · 名人堂与冠军收尾机会 · 收入让步'),
     effect(3,0.4,1.9,'mentor','成长 +3 · 教练与管理层路径打开 · 告别赛场')
   ],
   retire: [
