@@ -37,7 +37,7 @@ export const choiceEffects = {
 const focusPatterns = {
   development:/进步|新秀|第二春|全明星|最佳阵容/,
   scoring:/得分|最高分|生涯之夜|全明星|MVP|最佳阵容/,
-  championship:/冠军|FMVP|季后赛|分区决赛|名人堂/,
+  championship:/冠军|FMVP|总决赛|季后赛|分区决赛|名人堂/,
   defense:/防守|领袖|传帮带|退役球衣/,
   mentor:/教练|管理|前台|总经理|传帮带|老板/,
   loyalty:/母队|退役球衣|告别|巡演/,
