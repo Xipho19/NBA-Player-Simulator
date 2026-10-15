@@ -19,7 +19,9 @@ body{background:var(--bg);color:var(--text)}
 
 /* 页面衬底：美漫背景图 + 网点 */
 .app{position:relative;background:var(--bg)}
-.app::before{content:'';position:fixed;inset:0;z-index:0;background:url('./assets/comic-bg.jpg') center 20%/cover no-repeat;opacity:.14;pointer-events:none}
+.app::before{content:'';position:fixed;inset:0;z-index:0;background:url('./assets/comic-bg.jpg') center 30%/cover no-repeat;opacity:.14;pointer-events:none}
+/* 首页：美漫竖版背景图 */
+.home-screen{background:linear-gradient(180deg,rgba(10,14,26,.42),rgba(10,14,26,.88)),url('./assets/home-bg.jpg') center top/cover no-repeat}
 .app::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.2px);background-size:9px 9px}
 .topbar,.shell,.stats{position:relative;z-index:1}
 
