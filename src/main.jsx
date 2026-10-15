@@ -15,6 +15,7 @@ import './modal-actions.css';
 import './school-confirm.css';
 import './school-modal.css';
 import './home-achieve.css';
+import './comic-theme.css';
 import {choiceEffects, pickOutcomeIndex} from './career-effects.js';
 import {schoolRecords} from './school-records.js';
 import {ACHIEVEMENTS, evaluateAchievements, loadUnlocked, saveUnlocked} from './achievements.js';
