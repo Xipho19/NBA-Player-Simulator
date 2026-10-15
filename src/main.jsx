@@ -14,8 +14,10 @@ import './choice-actions.css';
 import './modal-actions.css';
 import './school-confirm.css';
 import './school-modal.css';
+import './home-achieve.css';
 import {choiceEffects, pickOutcomeIndex} from './career-effects.js';
 import {schoolRecords} from './school-records.js';
+import {ACHIEVEMENTS, evaluateAchievements, loadUnlocked, saveUnlocked} from './achievements.js';
 
 const universities = [
   { name:'杜克大学', conf:'ACC', city:'北卡罗来纳州·达勒姆', rating:88, tagline:'老牌篮球豪门 · 冠军标准', note:'传统豪门。高压比赛会塑造你的关键球能力。' },
@@ -167,8 +169,28 @@ function CareerSummary({history,score,stat,onRestart}){
   return <div className="summary-backdrop"><section className="career-summary"><div className="summary-top"><span>选择挑战者 · NBA 生涯</span><b>生涯总结</b></div><div className="summary-hero"><div><small>你的球员</small><h2>{history.find(h=>h.key==='school')?.value||'传奇球员'}</h2><p>{history.find(h=>h.key==='draft')?.value||'NBA 球员'} · {history.find(h=>h.key==='position')?.value||'全能球员'}</p></div><div className="summary-rank"><strong>{rank}</strong><span>传奇评级</span></div></div><div className="summary-progress"><span>职业故事</span><div>{history.map((h,i)=><i key={i} className="filled"/>)}{Array.from({length:Math.max(0,9-history.length)}).map((_,i)=><i key={`e${i}`}/>)}</div><div className="summary-ages"><span>D</span><span>21</span><span>24</span><span>27</span><span>30</span><span>33</span><span>R</span></div></div><div className="summary-stats"><div><b>{stat.ppg}</b><span>PPG</span></div><div><b>{stat.apg}</b><span>APG</span></div><div><b>{stat.rpg}</b><span>RPG</span></div></div><div className="summary-honors"><div><b>{honors}</b><span>荣誉</span></div><div><b>{totalSalary?totalSalary.toLocaleString():'—'}</b><span>累计收入（万）</span></div><div><b>{history.filter(h=>/全明星/.test(`${h.value}${h.choice||''}`)).length}</b><span>全明星</span></div><div><b>{history.filter(h=>/冠军/.test(`${h.value}${h.choice||''}`)).length}</b><span>冠军</span></div></div><div className="summary-timeline"><div className="timeline-title"><span>职业生涯历程</span><em>最终评分 {rating}</em></div>{history.map((h,i)=><div className="timeline-row" key={`${h.key}-${i}`}><b>{h.label}</b><span>{h.choice||h.value}{h.decision&&<small className="timeline-decision">{h.decision.description}</small>}</span><strong>{h.rating||'—'}</strong><em>{h.stats?.ppg?`${h.stats.ppg} PPG`:'已完成'}</em></div>)}</div><div className="summary-footer"><span>传奇编号 · NBA-{String(rating).padStart(3,'0')}-{String(history.length).padStart(2,'0')}</span><button onClick={onRestart}>重新开始一段生涯</button></div></section></div>;
 }
 
+function HomeScreen({onStart,onAchievements}){
+  return <div className="home-screen"><div className="home-glow"/><div className="home-inner">
+    <div className="home-brand"><span className="home-mark">DC</span><span>DRAFT CHALLENGE</span></div>
+    <h1 className="home-title">NBA 生涯模拟器</h1>
+    <p className="home-sub">从大学转盘到名人堂，转动属于你的整段篮球生涯。</p>
+    <button className="home-start" onClick={onStart}><Trophy size={20}/> 开始游戏</button>
+    <button className="home-achieve" onClick={onAchievements}><Sparkles size={18}/> 成就</button>
+    <p className="home-hint">九次抉择，决定你与冠军的距离。</p>
+  </div></div>;
+}
+
+function AchievementsScreen({unlocked,onBack}){
+  const set=new Set(unlocked||[]);
+  const done=ACHIEVEMENTS.filter(a=>set.has(a.id)).length;
+  return <div className="achieve-screen"><div className="achieve-inner">
+    <div className="achieve-head"><button className="achieve-back" onClick={onBack}>← 返回</button><div><span className="achieve-kicker">成就殿堂</span><h1>生涯成就</h1><p>已解锁 {done} / {ACHIEVEMENTS.length}</p></div></div>
+    <div className="achieve-grid">{ACHIEVEMENTS.map(a=>{const on=set.has(a.id);return <div key={a.id} className={`achieve-card ${on?'unlocked':'locked'}`}><div className="achieve-icon">{on?<img src={a.icon} alt={a.name}/>:<div className="achieve-icon-lock"><Lock size={22}/></div>}</div><div className="achieve-copy"><b>{a.name}</b><span className={`rarity r-${a.rarity}`}>{a.rarity}</span><small>{on?a.desc:'尚未解锁'}</small></div></div>})}</div>
+  </div></div>;
+}
+
 function App(){
-  const [chapter,setChapter]=useState(0), [spinning,setSpinning]=useState(false), [revealPending,setRevealPending]=useState(false), [stageReviewed,setStageReviewed]=useState(false), [result,setResult]=useState(null), [reelStep,setReelStep]=useState(outcomes.school.length*5), [reelDuration,setReelDuration]=useState(0), [stageChoice,setStageChoice]=useState(null), [stageModal,setStageModal]=useState(null), [completed,setCompleted]=useState(false), [university,setUniversity]=useState(null), [position,setPosition]=useState(null), [history,setHistory]=useState([]), [freeRerollUsed,setFreeRerollUsed]=useState(false), [rerollMessage,setRerollMessage]=useState('');
+  const [chapter,setChapter]=useState(0), [spinning,setSpinning]=useState(false), [revealPending,setRevealPending]=useState(false), [stageReviewed,setStageReviewed]=useState(false), [result,setResult]=useState(null), [reelStep,setReelStep]=useState(outcomes.school.length*5), [reelDuration,setReelDuration]=useState(0), [stageChoice,setStageChoice]=useState(null), [stageModal,setStageModal]=useState(null), [completed,setCompleted]=useState(false), [university,setUniversity]=useState(null), [position,setPosition]=useState(null), [history,setHistory]=useState([]), [freeRerollUsed,setFreeRerollUsed]=useState(false), [rerollMessage,setRerollMessage]=useState(''), [view,setView]=useState('home'), [unlocked,setUnlocked]=useState(()=>loadUnlocked());
   const revealTimer=useRef(null);
   const rerollBusy=useRef(false);
   const current=chapters[chapter];
@@ -197,8 +219,8 @@ function App(){
   const choosePosition=(p)=>{ setPosition(p); setStageReviewed(true); setResult([p,'你的比赛方式已确定']); setHistory(h=>[...h.filter(x=>x.key!=='position'),{key:'position',label:'选择位置',value:p,detail:'球员定位',rating:73,salary:0,stats:{ppg:'—',rpg:'—',apg:'—',fg:'—',extra:'—',extraLabel:'—'}}]); };
   const chooseStage=(choice)=>{ if(stageChoice)return; setStageChoice(choice); const decision=choiceEffects[current.key][choiceSets[current.key].indexOf(choice)]; setHistory(h=>h.map(x=>x.key===current.key?{...x,choice:choice[0],decision,baseSalary:x.baseSalary??x.salary,salary:choice[3]||x.salary}:x)); };
   const reselectStage=()=>{ if(!stageChoice)return; setHistory(h=>h.map(x=>x.key===current.key?{...x,choice:undefined,decision:undefined,salary:x.baseSalary??x.salary}:x)); setStageChoice(null); };
-  const next=()=>{ if(chapter===8 && stageChoice){setCompleted(true);return;} if(chapter<chapters.length-1 && (!choiceSets[current.key] || stageChoice)){clearTimeout(revealTimer.current);const nextPool=outcomes[chapters[chapter+1].key]||outcomes.school;setReelDuration(0);setReelStep(nextPool.length*5);setChapter(c=>c+1);setResult(null);setStageChoice(null);setStageReviewed(false);} };
-  const restart=()=>{clearTimeout(revealTimer.current);setChapter(0);setResult(null);setRevealPending(false);setStageReviewed(false);setReelDuration(0);setReelStep(outcomes.school.length*5);setStageChoice(null);setStageModal(null);setCompleted(false);setUniversity(null);setPosition(null);setHistory([]);setFreeRerollUsed(false);setRerollMessage('')};
+  const next=()=>{ if(chapter===8 && stageChoice){const ids=evaluateAchievements(history);setUnlocked(u=>{const m=[...new Set([...u,...ids])];saveUnlocked(m);return m});setCompleted(true);return;} if(chapter<chapters.length-1 && (!choiceSets[current.key] || stageChoice)){clearTimeout(revealTimer.current);const nextPool=outcomes[chapters[chapter+1].key]||outcomes.school;setReelDuration(0);setReelStep(nextPool.length*5);setChapter(c=>c+1);setResult(null);setStageChoice(null);setStageReviewed(false);} };
+  const restart=()=>{setView('home');clearTimeout(revealTimer.current);setChapter(0);setResult(null);setRevealPending(false);setStageReviewed(false);setReelDuration(0);setReelStep(outcomes.school.length*5);setStageChoice(null);setStageModal(null);setCompleted(false);setUniversity(null);setPosition(null);setHistory([]);setFreeRerollUsed(false);setRerollMessage('')};
   rerollCareer=async()=>{
     if(rerollBusy.current||spinning||revealPending)return;
     rerollBusy.current=true;setRerollMessage('');
@@ -211,6 +233,8 @@ function App(){
   };
   continueCareer=()=>{setStageModal(null);if(choiceSets[current.key])setStageReviewed(true);else next()};
   const done=chapter===chapters.length-1 && result;
+  if(view==='home') return <HomeScreen onStart={()=>setView('game')} onAchievements={()=>setView('achievements')}/>;
+  if(view==='achievements') return <AchievementsScreen unlocked={unlocked} onBack={()=>setView('home')}/>;
   return <div className="app"><header className="topbar"><div className="brand"><span className="brand-mark">DC</span><span>DRAFT CHALLENGE</span></div><div className="top-context">篮球 · 生涯模拟 <span className="live-dot"/> 本地记录</div><button className="restart" onClick={restart}><RefreshCcw size={15}/> 重新开始</button></header>
     <main className="shell"><aside className="rail"><div className="rail-kicker">你的生涯</div><div className="progress-title"><b>{chapter+1}</b><span>/ 09 章节</span></div><div className="progress-track"><div style={{height:`${((chapter+1)/9)*100}%`}}/></div><div className="rail-footer"><div className="record-label">当前传奇值</div><div className="record-value">{goat+score}<span>/ 100</span></div><div className="mini-bar"><i style={{width:`${Math.min(100,goat+score)}%`}}/></div></div></aside>
     <section className="main"><div className="eyebrow">第 {String(chapter+1).padStart(2,'0')} 章 / {current.age}</div><h1>{current.title}</h1><p className="subtitle">{current.desc}</p>

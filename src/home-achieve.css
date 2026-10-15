@@ -1,0 +1,40 @@
+/* 首页（美漫风格落地页） */
+.home-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 90% at 50% 0%,#16233a 0%,#0d1522 60%,#0a0f1a 100%);overflow:auto;padding:24px;}
+.home-glow{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:120%;height:60%;background:radial-gradient(closest-side,rgba(244,194,105,.28),transparent 70%);pointer-events:none;}
+.home-inner{position:relative;width:100%;max-width:420px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+.home-brand{display:flex;align-items:center;gap:8px;color:#f3c26b;font-weight:700;letter-spacing:2px;font-size:13px;margin-bottom:18px;}
+.home-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#f3c26b,#e08a2a);color:#14161d;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;box-shadow:0 3px 0 #8a5a1a,0 0 0 2px #2a3550;}
+.home-title{font-size:40px;font-weight:900;margin:0 0 10px;color:#fff;letter-spacing:2px;text-shadow:0 3px 0 #e08a2a,0 5px 14px rgba(0,0,0,.5);}
+.home-sub{color:#9fb0c8;font-size:15px;margin:0 0 30px;line-height:1.6;}
+.home-start{width:100%;max-width:300px;padding:14px 0;font-size:18px;font-weight:800;color:#14161d;background:linear-gradient(135deg,#f8d47a,#f0a63c);border:3px solid #0d1522;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-shadow:0 5px 0 #8a5a1a,0 10px 24px rgba(0,0,0,.4);transition:transform .06s;}
+.home-start:active{transform:translateY(4px);box-shadow:0 1px 0 #8a5a1a;}
+.home-achieve{width:100%;max-width:300px;margin-top:14px;padding:13px 0;font-size:16px;font-weight:700;color:#eef3fb;background:linear-gradient(135deg,#2c3d5c,#1b2740);border:3px solid #0d1522;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-shadow:0 5px 0 #0a0f1a,0 8px 20px rgba(0,0,0,.35);transition:transform .06s;}
+.home-achieve:active{transform:translateY(4px);box-shadow:0 1px 0 #0a0f1a;}
+.home-hint{color:#6b7c98;font-size:13px;margin-top:22px;}
+
+/* 成就页 */
+.achieve-screen{position:fixed;inset:0;background:radial-gradient(120% 90% at 50% 0%,#16233a 0%,#0d1522 60%,#0a0f1a 100%);overflow:auto;padding:20px;}
+.achieve-inner{width:100%;max-width:520px;margin:0 auto;}
+.achieve-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;}
+.achieve-back{background:#1b2740;color:#eef3fb;border:2px solid #2a3550;border-radius:10px;padding:8px 14px;font-size:14px;cursor:pointer;box-shadow:0 3px 0 #0a0f1a;white-space:nowrap;}
+.achieve-back:active{transform:translateY(2px);box-shadow:0 1px 0 #0a0f1a;}
+.achieve-kicker{display:block;color:#f3c26b;font-size:12px;letter-spacing:2px;font-weight:700;}
+.achieve-head h1{color:#fff;font-size:26px;font-weight:900;margin:2px 0 0;}
+.achieve-head p{color:#9fb0c8;font-size:14px;margin:4px 0 0;}
+.achieve-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+@media(min-width:520px){.achieve-grid{grid-template-columns:repeat(3,1fr);}}
+.achieve-card{background:#121a2a;border:2px solid #2a3550;border-radius:12px;padding:12px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;}
+.achieve-card.unlocked{border-color:#4a5f38;box-shadow:0 4px 14px rgba(0,0,0,.35);}
+.achieve-card.locked{opacity:.5;filter:grayscale(1);}
+.achieve-icon{width:88px;height:88px;border-radius:50%;overflow:hidden;border:3px solid #2a3550;background:#0d1522;display:flex;align-items:center;justify-content:center;}
+.achieve-card.unlocked .achieve-icon{border-color:#f3c26b;}
+.achieve-icon img{width:100%;height:100%;object-fit:cover;}
+.achieve-icon-lock{color:#5b6b85;display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
+.achieve-copy{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.achieve-copy b{color:#fff;font-size:15px;}
+.rarity{font-size:11px;font-weight:700;padding:1px 8px;border-radius:20px;}
+.r-常见{color:#9fb0c8;background:#1b2740;border:1px solid #2a3550;}
+.r-稀有{color:#6ab7ff;background:#14304f;border:1px solid #2a5580;}
+.r-传说{color:#f3c26b;background:#3a2d14;border:1px solid #6b551f;}
+.achieve-copy small{color:#6b7c98;font-size:12px;min-height:30px;}
+.achieve-card.unlocked .achieve-copy small{color:#9fb0c8;}
