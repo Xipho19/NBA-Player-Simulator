@@ -103,7 +103,7 @@ body{background:var(--bg);color:var(--text)}
 .status-pill{color:var(--green);border:2px solid var(--ink);font-weight:800}
 .player-card{border-bottom:3px solid var(--ink)}
 .avatar{background:linear-gradient(135deg,var(--yellow),var(--red));color:var(--ink);border:3px solid var(--ink);box-shadow:3px 3px 0 var(--ink)!important;font-weight:900}
-.player-card b{font-weight:800;color:var(--yellow);font-size:17px}
+.player-card b{font-weight:800;color:#ffd23f!important;font-size:18px;text-shadow:1px 1px 0 #000}
 .player-card span{color:#c3cddd;font-size:13px;font-weight:600}
 .rating strong{color:var(--yellow);font-weight:900;text-shadow:3px 3px 0 var(--ink)}
 .rating small{color:var(--cyan);font-weight:800}
